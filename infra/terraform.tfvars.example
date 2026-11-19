@@ -1,0 +1,21 @@
+region  = "cn-north-4"
+name_prefix = "iceberg-migration-dev"
+
+# 重要: 两个 OBS 桶名必须在华为云账户内全局唯一.
+# 生产环境建议桶名带账户 ID 或随机后缀, 防止桶名抢注.
+#   例: iceberg-migration-metadata-<12-digit-account-id>
+#       iceberg-migration-data-<12-digit-account-id>
+# 本示例仅用于本地测试, 请按上述规则重命名后再 apply.
+metadata_bucket_name = "<your-unique-metadata-bucket-name>"
+data_bucket_name     = "<your-unique-data-bucket-name>"
+
+output_prefix = "iceberg-metadata"
+
+log_retention_days = 7
+
+tags = {
+  project     = "data-integration-iceberg-snapshot-restore"
+  managed     = "terraform"
+  environment = ""
+  owner       = ""
+}
